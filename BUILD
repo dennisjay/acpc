@@ -1,3 +1,5 @@
+package(default_visibility = ["//visibility:public"])
+
 cc_library(
     name = "acpc",
     srcs = ["project_acpc_server/rng.c", "project_acpc_server/game.c" ],
