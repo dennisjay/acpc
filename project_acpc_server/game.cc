@@ -11,6 +11,7 @@ Copyright (C) 2011 by the Computer Poker Research Group, University of Alberta
 #include <stdint.h>
 #include "game.h"
 #include "rng.h"
+#include <inttypes.h>
 
 #include "evalHandTables"
 
