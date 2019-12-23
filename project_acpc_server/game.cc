@@ -7,11 +7,10 @@ Copyright (C) 2011 by the Computer Poker Research Group, University of Alberta
 #include <string.h>
 #include <ctype.h>
 #include <assert.h>
-#define __STDC_LIMIT_MACROS
 #include <stdint.h>
 #include "game.h"
 #include "rng.h"
-#include <inttypes.h>
+#include <cinttypes>
 
 #include "evalHandTables"
 
