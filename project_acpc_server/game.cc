@@ -7,9 +7,9 @@ Copyright (C) 2011 by the Computer Poker Research Group, University of Alberta
 #include <string.h>
 #include <ctype.h>
 #include <assert.h>
-#include <stdint.h>
 #include "game.h"
 #include "rng.h"
+#define __STDC_FORMAT_MACROS
 #include <cinttypes>
 
 #include "evalHandTables"
