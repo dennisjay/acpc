@@ -4,7 +4,8 @@ Copyright (C) 2011 by the Computer Poker Research Group, University of Alberta
 
 #ifndef _GAME_H
 #define _GAME_H
-#define __STDC_FORMAT_MACROS
+// __STDC_FORMAT_MACROS has been removed and should be enabled
+// using "-D__STDC_FORMAT_MACROS=1"
 #include <inttypes.h>
 #include "rng.h"
 #include "net.h"
@@ -26,6 +27,7 @@ Copyright (C) 2011 by the Computer Poker Research Group, University of Alberta
 
 #define NUM_ACTION_TYPES 3
 
+namespace project_acpc_server {
 
 enum BettingType { limitBetting, noLimitBetting };
 enum ActionType { a_fold = 0, a_call = 1, a_raise = 2,
@@ -250,4 +252,5 @@ int printCards( const int numCards, const uint8_t *cards,
 #define suitOfCard( card ) ((card)%MAX_SUITS)
 #define makeCard( rank, suit ) ((rank)*MAX_SUITS+(suit))
 
+}  // namespace
 #endif

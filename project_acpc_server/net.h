@@ -8,13 +8,15 @@ Copyright (C) 2011 by the Computer Poker Research Group, University of Alberta
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/types.h>
-#define __STDC_FORMAT_MACROS
+// __STDC_FORMAT_MACROS has been removed and should be enabled using
+// the flag "-D__STDC_FORMAT_MACROS=1".
 #include <inttypes.h>
 
 
 #define READBUF_LEN 4096
 #define NUM_PORT_CREATION_ATTEMPTS 10
 
+namespace project_acpc_server {
 
 /* buffered I/O on file descriptors
 
@@ -60,3 +62,5 @@ ssize_t getLine( ReadBuf *readBuf,
 
 
 #endif
+
+} // namespace project_acpc_server

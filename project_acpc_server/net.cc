@@ -11,6 +11,7 @@ Copyright (C) 2011 by the Computer Poker Research Group, University of Alberta
 #include <netinet/tcp.h>
 #include "net.h"
 
+namespace project_acpc_server {
 
 ReadBuf *createReadBuf( int fd )
 {
@@ -214,3 +215,5 @@ int getListenSocket( uint16_t *desiredPort )
 
   return sock;
 }
+
+} // namespace project_acpc_server

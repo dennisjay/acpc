@@ -7,7 +7,8 @@
 
 #ifndef _RNG_H
 #define _RNG_H
-#define __STDC_FORMAT_MACROS
+// __STDC_FORMAT_MACROS has been removed and should be enabled using
+// the flag "-D__STDC_FORMAT_MACROS=1"
 #include <inttypes.h>
 
 
@@ -23,6 +24,7 @@
 #define UPPER_MASK 0x80000000UL /* most significant w-r bits */
 #define LOWER_MASK 0x7fffffffUL /* least significant r bits */
 
+namespace project_acpc_server {
 
 typedef struct {
 uint32_t mt[ RNG_N ];
@@ -60,4 +62,5 @@ uint32_t genrand_int32( rng_state_t *state );
 /* generates a random number on [0,1) with 53-bit resolution*/
 #define genrand_res53(state) (((genrand_int32(state)>>5)*67108864.0+(genrand_int32(state)>>6))*(1.0/9007199254740992.0))
 
+}  // namespace
 #endif

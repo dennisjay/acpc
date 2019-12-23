@@ -52,6 +52,7 @@
 /* NOTE changes made on 2005/9/7 by Neil Burch - if you have problems
    with this code, DON'T complain to Makoto Matsumoto... */
 
+namespace project_acpc_server {
 
 /* initializes mt[RNG_N] with a seed */
 void init_genrand( rng_state_t *state, uint32_t s )
@@ -137,3 +138,5 @@ uint32_t genrand_int32( rng_state_t *state )
 
     return y;
 }
+
+} // namespace project_acpc_server
