@@ -1,6 +1,8 @@
 /*
 Copyright (C) 2011 by the Computer Poker Research Group, University of Alberta
 */
+#define __STDC_FORMAT_MACROS
+#include <inttypes.h>
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -9,8 +11,7 @@ Copyright (C) 2011 by the Computer Poker Research Group, University of Alberta
 #include <assert.h>
 #include "game.h"
 #include "rng.h"
-#define __STDC_FORMAT_MACROS
-#include <inttypes.h>
+
 
 #include "evalHandTables"
 
