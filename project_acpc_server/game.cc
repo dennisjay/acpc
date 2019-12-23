@@ -10,7 +10,7 @@ Copyright (C) 2011 by the Computer Poker Research Group, University of Alberta
 #include "game.h"
 #include "rng.h"
 #define __STDC_FORMAT_MACROS
-#include <cinttypes>
+#include <inttypes.h>
 
 #include "evalHandTables"
 
@@ -246,14 +246,14 @@ Game *readGame( FILE *file )
   /* do sanity checks */
   if( game->numRounds == 0 || game->numRounds > MAX_ROUNDS ) {
 
-    fprintf( stderr, "invalid number of rounds: %" PRIu8"\n", game->numRounds );
+    fprintf( stderr, "invalid number of rounds: %" PRIu8 "\n", game->numRounds );
     free( game );
     return NULL;
   }
 
   if( game->numPlayers < 2 || game->numPlayers > MAX_PLAYERS ) {
 
-    fprintf( stderr, "invalid number of players: %" PRIu8"\n",
+    fprintf( stderr, "invalid number of players: %" PRIu8 "\n",
 	     game->numPlayers );
     free( game );
     return NULL;
@@ -261,7 +261,7 @@ Game *readGame( FILE *file )
 
   if( stackRead < game->numPlayers ) {
 
-    fprintf( stderr, "only read %" PRIu8" stack sizes, need %" PRIu8"\n",
+    fprintf( stderr, "only read %" PRIu8 " stack sizes, need %" PRIu8 "\n",
 	    stackRead, game->numPlayers );
     free( game );
     return NULL;
@@ -269,7 +269,7 @@ Game *readGame( FILE *file )
 
   if( blindRead < game->numPlayers ) {
 
-    fprintf( stderr, "only read %" PRIu8" blinds, need %" PRIu8"\n",
+    fprintf( stderr, "only read %" PRIu8 " blinds, need %" PRIu8 "\n",
 	    blindRead, game->numPlayers );
     free( game );
     return NULL;
@@ -287,7 +287,7 @@ Game *readGame( FILE *file )
   if( game->bettingType == limitBetting
       && raiseSizeRead < game->numRounds ) {
 
-    fprintf( stderr, "only read %" PRIu8" raise sizes, need %" PRIu8"\n",
+    fprintf( stderr, "only read %" PRIu8 " raise sizes, need %" PRIu8 "\n",
 	     raiseSizeRead, game->numRounds );
     free( game );
     return NULL;
@@ -298,7 +298,7 @@ Game *readGame( FILE *file )
     if( game->firstPlayer[ c ] == 0
 	|| game->firstPlayer[ c ] > game->numPlayers ) {
 
-      fprintf( stderr, "invalid first player %" PRIu8" on round %d\n",
+      fprintf( stderr, "invalid first player %" PRIu8 " on round %d\n",
 	      game->firstPlayer[ c ], c + 1 );
       free( game );
       return NULL;
@@ -309,21 +309,21 @@ Game *readGame( FILE *file )
 
   if( game->numSuits == 0 || game->numSuits > MAX_SUITS ) {
 
-    fprintf( stderr, "invalid number of suits: %" PRIu8"\n", game->numSuits );
+    fprintf( stderr, "invalid number of suits: %" PRIu8 "\n", game->numSuits );
     free( game );
     return NULL;
   }
 
   if( game->numRanks == 0 || game->numRanks > MAX_RANKS ) {
 
-    fprintf( stderr, "invalid number of ranks: %" PRIu8"\n", game->numRanks );
+    fprintf( stderr, "invalid number of ranks: %" PRIu8 "\n", game->numRanks );
     free( game );
     return NULL;
   }
 
   if( game->numHoleCards == 0 || game->numHoleCards > MAX_HOLE_CARDS ) {
 
-    fprintf( stderr, "invalid number of hole cards: %" PRIu8"\n",
+    fprintf( stderr, "invalid number of hole cards: %" PRIu8 "\n",
 	     game->numHoleCards );
     free( game );
     return NULL;
@@ -331,7 +331,7 @@ Game *readGame( FILE *file )
 
   if( boardCardsRead < game->numRounds ) {
 
-    fprintf( stderr, "only read %" PRIu8" board card numbers, need %" PRIu8"\n",
+    fprintf( stderr, "only read %" PRIu8 " board card numbers, need %" PRIu8 "\n",
 	    boardCardsRead, game->numRounds );
     free( game );
     return NULL;
@@ -363,9 +363,9 @@ void printGame( FILE *file, const Game *game )
     fprintf( file, "limit\n" );
   }
 
-  fprintf( file, "numPlayers = %" PRIu8"\n", game->numPlayers );
+  fprintf( file, "numPlayers = %" PRIu8 "\n", game->numPlayers );
 
-  fprintf( file, "numRounds = %" PRIu8"\n", game->numRounds );
+  fprintf( file, "numRounds = %" PRIu8 "\n", game->numRounds );
 
   for( i = 0; i < game->numPlayers; ++i ) {
     if( game->stack[ i ] < INT32_MAX ) {
@@ -421,11 +421,11 @@ void printGame( FILE *file, const Game *game )
     }
   }
 
-  fprintf( file, "numSuits = %" PRIu8"\n", game->numSuits );
+  fprintf( file, "numSuits = %" PRIu8 "\n", game->numSuits );
 
-  fprintf( file, "numRanks = %" PRIu8"\n", game->numRanks );
+  fprintf( file, "numRanks = %" PRIu8 "\n", game->numRanks );
 
-  fprintf( file, "numHoleCards = %" PRIu8"\n", game->numHoleCards );
+  fprintf( file, "numHoleCards = %" PRIu8 "\n", game->numHoleCards );
 
   fprintf( file, "numBoardCards =" );
   for( i = 0; i < game->numRounds; ++i ) {
